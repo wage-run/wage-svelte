@@ -1,3 +1,3 @@
 // Reexport your entry components here
 export { link } from './link'
-export { setUriGenerator } from './config'
+export { setUriGenerator, getUri } from './config'
