@@ -1,3 +1,6 @@
-import { initGoFetch } from '$lib/sw'
+import { initGoFetch } from "./lib/sw.js"
 
-initGoFetch('/live', '/wshttp.wasm?v=1')
+initGoFetch({
+	endpoint: { ws: "/live" },
+	wasmUrl: "/wshttp.wasm?v=1",
+})
