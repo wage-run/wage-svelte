@@ -16,7 +16,7 @@
 
 ```ts
 // service-worker.ts
-import { initGoFetch } from '@wage/svelte/dist/sw'
+import { initGoFetch } from '@wage/svelte/dist/sw.js'
 
 initGoFetch('/live', '/wshttp.wasm?v=1')
 ```
