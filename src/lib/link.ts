@@ -1,7 +1,7 @@
-import { derived, type Readable } from 'svelte/store'
-import { page } from '$app/stores'
-import { browser } from '$app/environment'
-import { getUri } from "./config";
+import { derived, type Readable } from "svelte/store"
+import { page } from "$app/stores"
+import { browser } from "$app/environment"
+import { getUri } from "./config"
 
 export const link = <T = any>(data: T, ep?: string) => {
 	let uri: string
@@ -10,15 +10,15 @@ export const link = <T = any>(data: T, ep?: string) => {
 		if (!browser) {
 			return () => {}
 		}
-		uri = ep ?? getUri(page)
+		uri = ep ?? getUri(page.url)
 		let es: EventSource
 		let connect = (retry: (re: any) => void) => {
 			es = new EventSource(uri)
-			es.addEventListener('message', (e) => {
+			es.addEventListener("message", (e) => {
 				let z = JSON.parse(e.data)
 				set(z)
 			})
-			es.addEventListener('error', function (e) {
+			es.addEventListener("error", function (e) {
 				setTimeout(retry, 1e3, retry)
 			})
 		}
@@ -30,7 +30,7 @@ export const link = <T = any>(data: T, ep?: string) => {
 	return {
 		subscribe: source.subscribe,
 		set: (t: any) => {
-			fetch(uri, { method: 'post', body: JSON.stringify(t) })
+			fetch(uri, { method: "post", body: JSON.stringify(t) })
 		},
 	}
 }

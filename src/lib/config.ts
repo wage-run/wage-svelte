@@ -1,7 +1,6 @@
-import type { Page } from '@sveltejs/kit'
-
-export let getUri = (page: Page): string => {
-	return `/live/events${page.url.pathname}`
+export let getUri = (url: URL): string => {
+	url.pathname = `/live/events` + url.pathname
+	return url.toString()
 }
 
 export const setUriGenerator = (g: typeof getUri) => {
