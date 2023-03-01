@@ -16,9 +16,12 @@
 
 ```ts
 // service-worker.ts
-import { initGoFetch } from '@wage/svelte/dist/sw.js'
+import { initGoFetch } from "./lib/sw.js"
 
-initGoFetch('/live', '/wshttp.wasm?v=1')
+initGoFetch({
+	endpoint: { ws: "/live" },
+	wasmUrl: "/wshttp.wasm?v=1",
+})
 ```
 
 ## Developing
