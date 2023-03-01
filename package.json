@@ -1,6 +1,6 @@
 {
 	"name": "@wage/svelte",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -31,7 +31,7 @@
 		},
 		"./dist/sw.js": {
 			"types": "./dist/sw.d.ts",
-			"svelte": "./dist/sw.js"
+			"module": "./dist/sw.js"
 		}
 	},
 	"files": [
